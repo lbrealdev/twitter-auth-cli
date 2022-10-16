@@ -4,7 +4,7 @@ from twitter_cli.apikey import (
     prompt_api_details,
     request_access_token,
     fetch_credentials,
-    write_netrc
+    write_netrc,
 )
 from twitter_cli.config import TWITTER_API
 from twitter_cli.display import Display
@@ -32,7 +32,9 @@ def login(relogin):
         except Exception:
             click.echo("Failed to fetch your token, check your credentials!")
     else:
-        click.echo("You're already logged in! \nTry --relogin to update your credentials!")
+        click.echo(
+            "You're already logged in! \nTry --relogin to update your credentials!"
+        )
 
 
 @cli.command("slice")
@@ -41,13 +43,13 @@ def login(relogin):
     "frequency", 
     flag_value="daily", 
     default=True,
-    help="Fetch the Top ML tweets for the past 24 hours."
+    help="Fetch the Top ML tweets for the past 24 hours.",
 )
 @click.option(
     "--weekly", 
     "frequency", 
     flag_value="weekly",
-    help="Fetch the Top ML tweets for the past 7 days."
+    help="Fetch the Top ML tweets for the past 7 days.",
 )
 def slice(frequency):
     display = Display()

@@ -43,7 +43,9 @@ class Display:
         table.caption = "Built with https://python-poetry.org/"
 
         table.add_column("Username", justify="center")
-        table.add_column("Tweet", justify="center", header_style="bold blue", max_width=100)
+        table.add_column(
+            "Tweet", justify="center", header_style="bold blue", max_width=100
+        )
         table.add_column("Tweet Link", justify="center")
         table.add_column("Likes", justify="center", header_style="bold red")
 

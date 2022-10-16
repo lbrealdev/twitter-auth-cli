@@ -17,7 +17,7 @@ def _find_netrc_api_key(url, raise_errors=False):
     NETRC_FILES = (".netrc", "_netrc")
     netrc_file = os.environ.get("NETRC")
     if netrc_file is not None:
-        netrc_locations = (netrc_file)
+        netrc_locations = netrc_file
     else:
         netrc_locations = ("~/{}".format(f) for f in NETRC_FILES)
 
