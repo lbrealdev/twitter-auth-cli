@@ -3,6 +3,7 @@ from rich.table import Table
 from rich import box
 from typing import Optional
 
+
 class Display:
     TWITTER_BASE = "https://twitter.com"
 

@@ -9,6 +9,7 @@ from twitter_cli.apikey import (
 from twitter_cli.config import TWITTER_API
 from twitter_cli.display import Display
 
+
 @click.group()
 def cli():
     """
@@ -16,6 +17,7 @@ def cli():
     twitter-auth-cli is your authentication cli for twitter that receives tweets about Machine Learning.
 
     """
+
 
 @cli.command("login")
 @click.option("--relogin", "-r", is_flag=True, help="Force a relogin.")
