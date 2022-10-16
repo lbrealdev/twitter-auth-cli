@@ -41,15 +41,15 @@ def login(relogin):
 
 @cli.command("slice")
 @click.option(
-    "--daily", 
-    "frequency", 
-    flag_value="daily", 
+    "--daily",
+    "frequency",
+    flag_value="daily",
     default=True,
     help="Fetch the Top ML tweets for the past 24 hours.",
 )
 @click.option(
-    "--weekly", 
-    "frequency", 
+    "--weekly",
+    "frequency",
     flag_value="weekly",
     help="Fetch the Top ML tweets for the past 7 days.",
 )
