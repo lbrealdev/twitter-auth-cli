@@ -3,6 +3,7 @@ from typing import Optional
 from twitter_cli.display import Display
 from datetime import datetime, timedelta
 
+
 class API:
     """
     Class representing the twitter API
