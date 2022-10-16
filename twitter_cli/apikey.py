@@ -13,6 +13,7 @@ import getpass
 
 display = Display()
 
+
 def _find_netrc_api_key(url, raise_errors=False):
     NETRC_FILES = (".netrc", "_netrc")
     netrc_file = os.environ.get("NETRC")
@@ -55,7 +56,9 @@ def _find_netrc_api_key(url, raise_errors=False):
     except (ImportError, AttributeError):
         pass
 
+
 DEVELOPER_DASHBOARD_URL = "https://developer.twitter.com/en/portal/dashboard"
+
 
 def prompt_api_details() -> Tuple[str, str, str]:
     api_prompt = Panel(
@@ -74,7 +77,9 @@ def prompt_api_details() -> Tuple[str, str, str]:
     app_name = input("App Name: ")
     return (client_id, client_secret, app_name)
 
+
 REQUEST_TOKEN_URL = "https://api.twitter.com/oauth2/token"
+
 
 def request_access_token(client_id: str, client_secret: str) -> str:
     """
@@ -97,6 +102,7 @@ def request_access_token(client_id: str, client_secret: str) -> str:
         display.error(f"{err}")
         raise ValueError(err)
 
+
 def fetch_credentials(api_url: str) -> Tuple[str, str]:
     agent, token = None, None
     auth = _find_netrc_api_key(api_url, True)
@@ -108,6 +114,7 @@ def fetch_credentials(api_url: str) -> Tuple[str, str]:
         raise ValueError(
             f"Could not find entry in netrc file for provided URL: {api_url}"
         )
+
 
 def write_netrc(host: str, entity: str, key: str):
     normalized_host = urlparse(host).netloc.split(":")[0]
@@ -139,4 +146,3 @@ def write_netrc(host: str, entity: str, key: str):
         )
     os.chmod(os.path.expanduser("~/.netrc"), stat.S_IRUSR | stat.S_IWUSR)
     return True
-
