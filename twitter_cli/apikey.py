@@ -69,9 +69,7 @@ def prompt_api_details() -> Tuple[str, str, str]:
         box=box.ROUNDED,
     )
     display.log_styled(api_prompt, style="yellow")
-    display.log(
-        "Paste the Client ID, Secret and App Name from your profile: "
-    )
+    display.log("Paste the Client ID, Secret and App Name from your profile: ")
     client_id = getpass.getpass(prompt="Client ID ")
     client_secret = getpass.getpass(prompt="Client Secret ")
     app_name = input("App Name: ")

@@ -34,9 +34,7 @@ def login(relogin):
         except Exception:
             click.echo("Failed to fetch your token, check your credentials!")
     else:
-        click.echo(
-            "You're already logged in! \nTry --relogin to login again!"
-        )
+        click.echo("You're already logged in! \nTry --relogin to login again!")
 
 
 @cli.command("slice")
