@@ -21,3 +21,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 twittercli = "twitter_cli.cli:cli"
+
+[tool.coverage.run]
+disable_warnings = ['no-data-collected']

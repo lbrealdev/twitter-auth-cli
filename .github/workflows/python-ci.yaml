@@ -25,5 +25,5 @@ jobs:
 
       - name: Generate Report
         run: |
-          poetry run pytest -s tests/
-          poetry run coverage report -m
+          poetry run coverage run -m pytest -s tests/
+          
