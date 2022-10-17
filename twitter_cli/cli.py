@@ -3,7 +3,7 @@ from twitter_cli.api import API
 from twitter_cli.apikey import (
     prompt_api_details,
     request_access_token,
-    fetch_credentials,
+    read_credentials,
     write_netrc,
 )
 from twitter_cli.config import TWITTER_API
@@ -22,7 +22,7 @@ def cli():
 @cli.command("login")
 @click.option("--relogin", "-r", is_flag=True, help="Force a relogin.")
 def login(relogin):
-    apikey_configured = fetch_credentials(TWITTER_API) is not None
+    apikey_configured = read_credentials(TWITTER_API) is not None
     if relogin:
         apikey_configured = False
     if not apikey_configured:
@@ -53,7 +53,7 @@ def login(relogin):
 )
 def slice(frequency):
     display = Display()
-    credentials = fetch_credentials(TWITTER_API)
+    credentials = read_credentials(TWITTER_API)
     if credentials is None:
         display.error("Please login before running this command!")
         return

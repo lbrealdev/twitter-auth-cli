@@ -7,7 +7,7 @@ from requests.auth import HTTPBasicAuth
 from urllib.parse import urlparse
 from rich import box
 from rich.panel import Panel
-from typing import Tuple
+from typing import Tuple, Union
 from twitter_cli.display import Display
 import getpass
 
@@ -101,17 +101,13 @@ def request_access_token(client_id: str, client_secret: str) -> str:
         raise ValueError(err)
 
 
-def fetch_credentials(api_url: str) -> Tuple[str, str]:
+def read_credentials(api_url: str) -> Union[Tuple[str, str], None]:
     agent, token = None, None
     auth = _find_netrc_api_key(api_url, True)
     if auth and auth[0] and auth[1]:
         agent = auth[0]
         token = auth[1]
         return (agent, token)
-    else:
-        raise ValueError(
-            f"Could not find entry in netrc file for provided URL: {api_url}"
-        )
 
 
 def write_netrc(host: str, entity: str, key: str):
