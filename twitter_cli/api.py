@@ -9,7 +9,9 @@ class API:
     Class representing the twitter API
     """
 
-    def __init__(self, user_agent: str, bearer_token: str, api_url: str) -> None:
+    def __init__(
+        self, user_agent: str, bearer_token: str, api_url: str
+    ) -> None:
         self._session = requests.Session()
         self._api_url = api_url
         self._request_url = self._api_url + "/2/tweets/search/recent"
@@ -35,7 +37,9 @@ class API:
             tweets = []
 
             while page < self._max_pages and next_token is not None:
-                response = self._get_request(self._build_url(next_token, frequency))
+                response = self._get_request(
+                    self._build_url(next_token, frequency)
+                )
                 json = response.json()
                 next_token = json["meta"].get("next_token")
                 for user in json["includes"]["users"]:

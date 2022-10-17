@@ -14,7 +14,7 @@ from twitter_cli.display import Display
 def cli():
     """
 
-    twitter-auth-cli is your authentication cli for twitter that receives tweets about Machine Learning.
+    twitter-auth-cli is your authentication cli for twitter.
 
     """
 
@@ -35,7 +35,7 @@ def login(relogin):
             click.echo("Failed to fetch your token, check your credentials!")
     else:
         click.echo(
-            "You're already logged in! \nTry --relogin to update your credentials!"
+            "You're already logged in! \nTry --relogin to login again!"
         )
 
 

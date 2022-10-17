@@ -7,7 +7,7 @@ from requests.auth import HTTPBasicAuth
 from urllib.parse import urlparse
 from rich import box
 from rich.panel import Panel
-from typing import Tuple, Union
+from typing import Tuple
 from twitter_cli.display import Display
 import getpass
 
@@ -64,13 +64,13 @@ def prompt_api_details() -> Tuple[str, str, str]:
     api_prompt = Panel(
         f"""
             You can find your API keys on your Twitter App Dashboard
-            [link={DEVELOPER_DASHBOARD_URL}]here[/link]
+            {DEVELOPER_DASHBOARD_URL}
         """,
         box=box.ROUNDED,
     )
     display.log_styled(api_prompt, style="yellow")
     display.log(
-        "Paste the Client ID, Secret and App Name from your profile and hit enter: "
+        "Paste the Client ID, Secret and App Name from your profile: "
     )
     client_id = getpass.getpass(prompt="Client ID ")
     client_secret = getpass.getpass(prompt="Client Secret ")
