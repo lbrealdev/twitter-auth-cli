@@ -1,11 +1,11 @@
 name: Python CI
-
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
 
 jobs:
-  run:
+  python-ci:
     
     runs-on: ubuntu-latest
 
@@ -15,9 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@master
-        with:
-          python-version: 3.7
+        uses: actions/setup-python@v3
 
       - name: Install dependencies
         run: |
@@ -27,4 +25,5 @@ jobs:
 
       - name: Generate Report
         run: |
+          poetry run pytest -s tests/
           coverage report -m
