@@ -17,7 +17,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v3
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install poetry
@@ -26,4 +26,4 @@ jobs:
       - name: Generate Report
         run: |
           poetry run pytest -s tests/
-          coverage report -m
+          poetry run coverage report -m
