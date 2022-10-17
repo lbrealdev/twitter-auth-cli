@@ -1,8 +1,5 @@
 name: pre-commit
-on:
-  push:
-    branches:
-      - main
+on: [pull_request, push, workflow_dispatch]
 
 jobs:
   lint:
